@@ -1,0 +1,14 @@
+This repository contains end-to-end tests in Playwright for the OK-Notes shop. 
+
+## How To Run
+ 1. Run all tests using terminal:
+     ```
+     npm run test
+     ````
+     or
+ 2. Playwright UI:
+    ```
+    npm run test:ui
+    ```
+More information about Playwright can find [here](https://playwright.dev/)
+....
