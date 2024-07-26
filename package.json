@@ -1,0 +1,50 @@
+{
+  "name": "test-playwright-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install .husky",
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "report": "npx playwright show-report",
+    "report:allure": "npx allure serve allure-results",
+    "lint": "eslint . --ext .ts --max-warnings=0",
+    "prettier": "prettier . --write"
+  },
+  "keywords": [],
+  "author": "Iryna Yermalovich",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.45.3",
+    "@types/node": "^20.14.12",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/parser": "^7.17.0",
+    "allure-commandline": "^2.29.0",
+    "allure-playwright": "^3.0.0-beta.6",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^1.6.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "fs": "^0.0.1-security",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "util": "^0.12.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "path": "^0.12.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}

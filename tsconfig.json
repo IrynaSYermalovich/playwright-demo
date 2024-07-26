@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es6",
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "strict": true,
+    "types": ["node", "playwright"],
+    "paths": {
+      "@fixtures/*": ["fixtures/*"],
+      "@api-commands/*": ["api-commands/*"],
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"],
+      "@custom-types/*": ["custom-types/*"],
+      "@data/*": ["Data/*"]
+    },
+    "resolveJsonModule": true
+  }
+}
