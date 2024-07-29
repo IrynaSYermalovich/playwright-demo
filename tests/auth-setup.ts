@@ -7,8 +7,8 @@ const authFile = STORAGE_STATE;
 const headersJson = API_HEADERS;
 
 setup('authenticate', async ({ page, loginPage, navBar }) => {
-  // Intercept basket get request to get CSRF token and all other headers
-  await page.route(`**${urls.default.api.basket.get}`, async (route) => {
+  // Intercept get request to get CSRF token and all other headers
+  await page.route(`**${urls.default.api.product.get}`, async (route) => {
     const request = route.request();
     fs.writeFile(headersJson, JSON.stringify(request.headers(), null, 2), (err) => {
       if (err) {
@@ -24,5 +24,6 @@ setup('authenticate', async ({ page, loginPage, navBar }) => {
   await loginPage.login();
   /* eslint-disable-next-line playwright/no-standalone-expect */
   await expect(navBar.userBox).toBeVisible();
+  await page.waitForResponse(urls.default.api.product.get);
   await page.context().storageState({ path: authFile });
 });
