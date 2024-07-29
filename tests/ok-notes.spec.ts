@@ -11,8 +11,7 @@ test.describe('check ok-notes app', () => {
   });
 
   test.beforeEach(async ({ productsPage, navBar, basketAPIManager }) => {
-    await basketAPIManager.emptyBasket();
-    await productsPage.open();
+    await Promise.all([basketAPIManager.emptyBasket(), productsPage.open()]);
     await navBar.verifyBasketCount('0');
   });
 
